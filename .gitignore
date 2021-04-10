@@ -1,4 +1,5 @@
-./dataset/*
-./build/*
-./dist/*
-./idea/*
+dataset/*
+build/*
+dist/*
+.idea/*
+*.spec

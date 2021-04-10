@@ -1,7 +1,0 @@
-{
-    "host_ip": "10.20.3.219", 
-    "host_port": "8090", 
-    "flag" : "205a",
-    "root_dir": "dataset/test_channels/",
-    "read_time_duration": "3" 
-}
