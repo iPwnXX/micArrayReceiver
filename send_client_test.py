@@ -2,7 +2,8 @@ import socket
 import utils
 import time
 
-""" UDP往server端发送采集数据， 测试使用。
+
+""" UDP send collected data to server. Testing usage.
 """
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 host, port, root_dir, *_ = utils.get_config()

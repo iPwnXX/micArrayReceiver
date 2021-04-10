@@ -1,29 +1,27 @@
 import socket
 import time
 import os
-import os.path
 import socket
 import threading
 import time
 import utils
 import micDataProcess
 
-""" 读取麦克风阵列发送的数据，以文本保存。
+""" read mic array data. saved in text.
 """
 
 BUFSIZE = 2000
-read_time_duration = 5 # save data time duration.
+read_time_duration = 4 # save data time duration.
 end_flag = False 
 
 start_time = time.time()
 
 def task(host, port,root_dir):
     global end_flag
-    server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # udp协议
+
+    server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # udp protocol.
     server.bind((host, port))
 
-    # dir_name = 'dataset/'
-    # f_name = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()) +'.txt'
     if not os.path.exists(root_dir):
         os.makedirs(root_dir)
     f_name = root_dir+'rawdata.txt'
@@ -44,7 +42,8 @@ def task(host, port,root_dir):
 def main():
     # ip = '10.20.3.219'
     # port = (ip, 8089)  # 10.20.3.219  # static ip: 192.168.1.104
-    host, port,root_dir,*_ = utils.get_config()
+    global read_time_duration
+    host, port,root_dir,read_time_duration,*_ = utils.get_config()
 
     t = threading.Thread(target=task, args=(host, port,root_dir))
     t.daemon = True
@@ -60,4 +59,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print('done')
+    print('\ndone')

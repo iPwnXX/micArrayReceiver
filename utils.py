@@ -1,5 +1,6 @@
 import json 
-
+import numpy as np
+# import matplotlib.pyplot as plt
 
 # usage: host, port,_ = utils.get_config()
 def get_config():
@@ -8,7 +9,8 @@ def get_config():
         config = json.load(f)
         host = config['host_ip']
         port = int(config['host_port'])
-        flag = config['flag']
         root_dir = config['root_dir'] 
+        read_time_duration = int(config['read_time_duration'] )
+        flag = config['flag']
 
-    return host, port, root_dir,flag
+    return host, port, root_dir,read_time_duration,flag
